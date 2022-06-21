@@ -18,6 +18,8 @@ Long Short-Term Memory (LSTM) neural network used predict failure of a water pum
 
 ## Acknowledgements
 
-An introduction to RNNs - [MIT's 6.S191 Lecture on RRNs](https://youtu.be/qjrad0V0uJE)
+The project uses a sensor dataset from Kaggle - [pump_sensor_data.](https://www.kaggle.com/datasets/nphantawee/pump-sensor-data/metadata)
+
+For an introduction into RRNs [MIT's 6.S191 Lecture on RRNs](https://youtu.be/qjrad0V0uJE) has been a valuable resource.
 
 The project has been heavily inspired by Jan Werth's article - [LSTM for Predictive Maintenance on Pump Sensor Data.](https://towardsdatascience.com/lstm-for-predictive-maintenance-on-pump-sensor-data-b43486eb3210)
