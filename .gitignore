@@ -1,0 +1,5 @@
+# ignore all DS system files
+**/.DS_Store
+
+# ignore data folder (CSV too big to commit)
+data/
