@@ -14,6 +14,11 @@ Long Short-Term Memory (LSTM) neural network used predict failure of a water pum
 
 ### Built With
 
+* Python version: 3.9.12
+* Pandas version: 1.4.2
+* Numpy version: 1.22.3
+* Matplotlib version: 3.5.1
+* Tensorflow version: 2.4.1
 
 
 ## Acknowledgements
