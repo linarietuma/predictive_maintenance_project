@@ -1,24 +1,42 @@
 # Predictive Maintenance Project 
 
-## About the Project 
-
-Recurrent Neural Networks (RRNs) account for the context and sequence of the data therefore suited for time series analysis.
 
 
-RRNs are trained using back propagation through time (BPTT) - an extension of backpropagation used in traditional feed-forward NNs.
-
-RRNs are limited in the number of past time steps that can be remembered and susceptible to exploding and vanishing gradient due to recurrent flow of inputs through the network. Long Short-Term Memory (LSTM) neural networks are an extension of RRNs design to address the vanishing gradient problem of RRNs. LSTMs achieve this by having Gated Cells that have the ability to discard irrelevant information.
-
+## About 
+### The Project 
 
 Long Short-Term Memory (LSTM) neural network used predict failure of a water pump to allow for timely maintenance.
 
+### RNN Background
+
+Recurrent Neural Networks (RRNs) account for the context and sequence of the data therefore suited for time series analysis. RRNs are trained using back propagation through time (BPTT) - an extension of backpropagation used in traditional feed-forward NNs.
+
+RRNs are limited in the number of past time steps that can be remembered and susceptible to exploding and vanishing gradient due to recurrent flow of inputs through the network. Long Short-Term Memory (LSTM) neural networks are a type of RRN designed to address the vanishing gradient problem of RRNs and effectively handle extended sequences. LSTMs achieve this by having Gated Cells that have the ability to discard irrelevant information.
+
+
+### The Data
+
+![](nans_chart.png)
+
+The project uses a sensor dataset from Kaggle - [pump_sensor_data.](https://www.kaggle.com/datasets/nphantawee/pump-sensor-data/metadata) There are 52 sensors with a measurement made every minute for 220320 minutes (153 days). The `machine_status` column is the target feature to used as a predictor for machine breakdown. 
+
+Feature Summary:
+- Timestamps in 1-minute time steps
+- 52 sensors 
+- Machine Status (Normal, Broken, Recovering) (target feature)
+
+
 ### Built With
 
-* Python version: 3.9.12
-* Pandas version: 1.4.2
-* Numpy version: 1.22.3
-* Matplotlib version: 3.5.1
-* Tensorflow version: 2.4.1
+* Python version: 3.8.12
+* Pandas version: 1.3.4
+* Seaborn version: 0.11.2
+* Sklearn version: 1.0.2
+* Numpy version: 1.19.5
+* Matplotlib version: 3.4.2
+* Tensorflow version: 2.6.0
+
+## Results
 
 
 ## Acknowledgements
