@@ -5,9 +5,9 @@
 ## About 
 ### The Project 
 
-Long Short-Term Memory (LSTM) neural network used predict failure of a water pump to allow for timely maintenance.
+Time series data Long Short-Term Memory (LSTM) neural network used predict failure of a water pump to allow for timely maintenance. 
 
-### RNN Background
+### RNNs Background
 
 Recurrent Neural Networks (RRNs) account for the context and sequence of the data therefore suited for time series analysis. RRNs are trained using back propagation through time (BPTT) - an extension of backpropagation used in traditional feed-forward NNs.
 
@@ -16,13 +16,13 @@ RRNs are limited in the number of past time steps that can be remembered and sus
 
 ### The Data
 
-![](nans_chart.png)
+![](nan_matrix.png)
 
 The project uses a sensor dataset from Kaggle - [pump_sensor_data.](https://www.kaggle.com/datasets/nphantawee/pump-sensor-data/metadata) There are 52 sensors with a measurement made every minute for 220320 minutes (153 days). The `machine_status` column is the target feature to used as a predictor for machine breakdown. 
 
 Feature Summary:
 - Timestamps in 1-minute time steps
-- 52 sensors 
+- 52 Sensors 
 - Machine Status (Normal, Broken, Recovering) (target feature)
 
 
