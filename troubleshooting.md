@@ -5,8 +5,7 @@
 ### Error 1
 **Context:** the error occurs upon instantiating the keras Sequential() model in the following code:
 
-`from keras import Sequential`
-`model = Sequential()`
+`model = keras.Sequential()`
 
 The error occurs with the following Python and library versions:
 
@@ -24,11 +23,14 @@ The error occurs with the following Python and library versions:
 
 1. Open the file `../miniforge3/envs/bio/lib/python3.8/site-packages/tensorflow/python/__init__.py `.
 2. Swap the order of these lines:
+
 `from tensorflow.python.eager import context`
+
 `from tensorflow.python import pywrap_tensorflow as _pywrap_tensorflow`
 
 to 
 
-`from tensorflow.python import pywrap_tensorflow as _pywrap_tensorflow
-from tensorflow.python.eager import context`
+`from tensorflow.python import pywrap_tensorflow as _pywrap_tensorflow`
+
+`from tensorflow.python.eager import context`
 3. Save the file and rerun the code.
