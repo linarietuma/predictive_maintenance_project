@@ -50,7 +50,7 @@ The output layers are `Dense` layers, i.e., each node in a `Dense` layer is infl
 
 The dataset is heavily unbalanced, and classifying all instances as the dominant class would already give an accuracy of 95.7%. The graph above shows the model's accuracy and loss on the training dataset. The training dataset achieves an accuracy of ~99.5% which suggests that the model is not classifying all instances as the dominant class and the classification is not random. So far so good! Next the model was tested using the test dataset. 
 
-![](img/predictions.png)
+![](img/predctions.png)
 
 The model achieved an accuracy of 98.5%. The graphs above display the predicted and actual values of the test dataset. The model does not identify the `BROKEN` event but that's to be expected with only seven `BROKEN` instances in the whole dataset. However, the beginning of the `RECOVERING` phase matches near identically to the target data. The data were shifted by 10 minutes thus giving an accurate indication of machine failure 10 minutes in advance.
 
