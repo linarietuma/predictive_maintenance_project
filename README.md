@@ -25,6 +25,9 @@ Feature Summary:
 - 52 Sensors 
 - Machine Status (Normal, Broken, Recovering) (target feature)
 
+### The Model
+
+
 
 ### Built With
 
