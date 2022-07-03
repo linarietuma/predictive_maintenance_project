@@ -27,7 +27,13 @@ Feature Summary:
 
 ### The Model
 
+![](model.png)
 
+The following model will use a stacked LSTM architecture, i.e., the model is made up of  multiple LSTM layers.  The additional complexity of a deep `LSTM` model allows for higher abstraction to capture more complex input patterns. 
+
+The model has an input layer with dimensions that fit the input, two `LSTM` layers with 20 and 42 nodes respectively and two output layers - one for the label encoded data, the other for one-hot encoded data (fir results analysis the one-hot encoded layer data are used). For both hidden layers `relu` activation function is used to address the exploding/ vanishing gradient problem associated with activation function likes `sigmoid` or `tanh`. For the output layer `softmax` activation is used to - a type of `sigmoid` function used in classification problems with more then two classes.
+
+The output layers are `Dense` layers, i.e., each node in a `Dense` layer is influenced by every node from the previous layer. The `Dense` layer has a single output node for the label encoded y values (i.e., an array of categorical y values is encoded as an array of integers) while the `Dense` layer of one-hot encoded y values has a node for each column in the encoded matrix. 
 
 ### Built With
 
