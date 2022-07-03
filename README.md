@@ -1,22 +1,20 @@
 # Predictive Maintenance Project 
 
-
-
 ## About 
 ### The Project 
 
-Time series data Long Short-Term Memory (LSTM) neural network used predict failure of a water pump to allow for timely maintenance. 
+The project explores the application of Long Short-Term Memory (LSTM) neural network on a  time series dataset to predict failure of a water pump to allow for timely maintenance. 
 
-### RNNs Background
+### The Background
 
-Recurrent Neural Networks (RRNs) account for the context and sequence of the data therefore suited for time series analysis. RRNs are trained using back propagation through time (BPTT) - an extension of backpropagation used in traditional feed-forward NNs.
+LSTMs are a type of Recurrent Neural Network (RRN). RNNs differ from more traditional feed-forward NNs due to their ability to account for contextual information of data. This characteristic makes RRNs superior when working with time-series and sequential data (i.e., ). RRNs are trained using back propagation through time (BPTT) - an extension of backpropagation used in traditional feed-forward NNs.
 
-RRNs are limited in the number of past time steps that can be remembered and susceptible to exploding and vanishing gradient due to recurrent flow of inputs through the network. Long Short-Term Memory (LSTM) neural networks are a type of RRN designed to address the vanishing gradient problem of RRNs and effectively handle extended sequences. LSTMs achieve this by having Gated Cells that have the ability to discard irrelevant information.
+RRNs are susceptible to exploding and vanishing gradients due to the recurrent flow of inputs through the network. Long Short-Term Memory (LSTM) networks were designed to address the vanishing gradient problem of RRNs and effectively handle extended sequences. LSTMs achieve this by having Gated Cells that can discard irrelevant information.
 
 
 ### The Data
 
-![](./img/nan_matrix.png)
+![](img/nan_matrix.png)
 
 The project uses a sensor dataset from Kaggle - [pump_sensor_data.](https://www.kaggle.com/datasets/nphantawee/pump-sensor-data/metadata) There are 52 sensors with a measurement made every minute for 220320 minutes (153 days). The `machine_status` column is the target feature to used as a predictor for machine breakdown. 
 
@@ -27,7 +25,7 @@ Feature Summary:
 
 ### The Model
 
-![](./img/model.png)
+![](img/model.png)
 
 The following model will use a stacked LSTM architecture, i.e., the model is made up of  multiple LSTM layers.  The additional complexity of a deep `LSTM` model allows for higher abstraction to capture more complex input patterns. 
 
@@ -47,11 +45,25 @@ The output layers are `Dense` layers, i.e., each node in a `Dense` layer is infl
 
 ## Results
 
-![](./img/predictions.png)
 
+![](img/acc_loss_graph.png)
 
+The dataset is heavily unbalanced, and classifying all instances as the dominant class would already give an accuracy of 95.7%. The graph above shows the model's accuracy and loss on the training dataset. The training dataset achieves an accuracy of ~99.5% which suggests that the model is not classifying all instances as the dominant class and the classification is not random. So far so good! Next the model was tested using the test dataset. 
 
-![](./img/conf_matrix.png)
+![](img/predictions.png)
+
+The model achieved an accuracy of 98.5%. The graphs above display the predicted and actual values of the test dataset. The model does not identify the `BROKEN` event but that's to be expected with only seven `BROKEN` instances in the whole dataset. However, the beginning of the `RECOVERING` phase matches near identically to the target data. The data were shifted by 10 minutes thus giving an accurate indication of machine failure 10 minutes in advance.
+
+To better evaluate the performance of the model additional performance metrics besides accuracy are considered.  The confusion matrix suggests that all `NORMAL` instances were correctly classified, however almost a third of the `RECOVERING` instances where misclassified as `NORMAL`. This coincides with the predictions from the chart above where during the `RECOVERING` phase in the test data there's a dip.
+
+![](img/conf_matrix.png)
+
+## Future Improvements
+
+- Explore additional architectures (i.e., additional LSTM layers, different activation functions, increased/ decreased number of nodes).
+- Explore additional time shifts (in the current model, data are shifted by 10 minutes).
+- Introduce feature engineering (besides removing/ fixing features with an excessive number of NaNs, feature engineering has not been used).
+
 
 ## Acknowledgements
 
