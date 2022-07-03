@@ -16,7 +16,7 @@ RRNs are limited in the number of past time steps that can be remembered and sus
 
 ### The Data
 
-![](nan_matrix.png)
+![](./img/nan_matrix.png)
 
 The project uses a sensor dataset from Kaggle - [pump_sensor_data.](https://www.kaggle.com/datasets/nphantawee/pump-sensor-data/metadata) There are 52 sensors with a measurement made every minute for 220320 minutes (153 days). The `machine_status` column is the target feature to used as a predictor for machine breakdown. 
 
@@ -27,7 +27,7 @@ Feature Summary:
 
 ### The Model
 
-![](model.png)
+![](./img/model.png)
 
 The following model will use a stacked LSTM architecture, i.e., the model is made up of  multiple LSTM layers.  The additional complexity of a deep `LSTM` model allows for higher abstraction to capture more complex input patterns. 
 
@@ -47,11 +47,18 @@ The output layers are `Dense` layers, i.e., each node in a `Dense` layer is infl
 
 ## Results
 
+![](./img/predictions.png)
+
+
+
+![](./img/conf_matrix.png)
 
 ## Acknowledgements
 
 The project uses a sensor dataset from Kaggle - [pump_sensor_data.](https://www.kaggle.com/datasets/nphantawee/pump-sensor-data/metadata)
 
 For an introduction into RRNs [MIT's 6.S191 Lecture on RRNs](https://youtu.be/qjrad0V0uJE) has been a valuable resource.
+
+A useful resource for understanding Keras LSTM architecture - [Keras LSTM Diagram](https://github.com/MohammadFneish7/Keras_LSTM_Diagram).
 
 The project has been heavily inspired by Jan Werth's article - [LSTM for Predictive Maintenance on Pump Sensor Data.](https://towardsdatascience.com/lstm-for-predictive-maintenance-on-pump-sensor-data-b43486eb3210)
