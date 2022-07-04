@@ -16,7 +16,7 @@ RRNs are susceptible to exploding and vanishing gradients due to the recurrent f
 
 ![](img/nan_matrix.png)
 
-The project uses a sensor dataset from Kaggle - [pump_sensor_data.](https://www.kaggle.com/datasets/nphantawee/pump-sensor-data/metadata) There are 52 sensors with a measurement made every minute for 220320 minutes (153 days). The `machine_status` column is the target feature to used as a predictor for machine breakdown. 
+The project uses a sensor dataset from Kaggle - [pump_sensor_data.](https://www.kaggle.com/datasets/nphantawee/pump-sensor-data/metadata) There are 52 sensors with a measurement made every minute for 220320 minutes (153 days). The `machine_status` column is the target feature to be used as a predictor for machine breakdown. 
 
 Feature Summary:
 - Timestamps in 1-minute time steps
@@ -29,7 +29,7 @@ Feature Summary:
 
 The following model will use a stacked LSTM architecture, i.e., the model is made up of  multiple LSTM layers.  The additional complexity of a deep `LSTM` model allows for higher abstraction to capture more complex input patterns. 
 
-The model has an input layer with dimensions that fit the input, two `LSTM` layers with 20 and 42 nodes respectively and two output layers - one for the label encoded data, the other for one-hot encoded data (for results analysis the one-hot encoded layer data are used). For both hidden layers `relu` activation function is used to address the exploding/ vanishing gradient problem associated with activation function likes `sigmoid` or `tanh`. For the output layer `softmax` activation is used to - a type of `sigmoid` function used in classification problems with more then two classes.
+The model has an input layer with dimensions that fit the input, two `LSTM` layers with 20 and 42 nodes respectively and two output layers - one for the label encoded data, the other for one-hot encoded data (for results analysis the one-hot encoded layer data are used). For both hidden layers `relu` activation function is used to address the exploding/ vanishing gradient problem associated with activation function likes `sigmoid` or `tanh`. For the output layer `softmax` activation is used - a type of `sigmoid` function used in classification problems with more then two classes.
 
 The output layers are `Dense` layers, i.e., each node in a `Dense` layer is influenced by every node from the previous layer. The `Dense` layer has a single output node for the label encoded y values (i.e., an array of categorical y values is encoded as an array of integers) while the `Dense` layer of one-hot encoded y values has a node for each column in the encoded matrix. 
 
@@ -52,9 +52,9 @@ The dataset is heavily unbalanced, and classifying all instances as the dominant
 
 ![](img/predctions.png)
 
-The model achieved an accuracy of 98.5%. The graphs above display the predicted and actual values of the test dataset. The model does not identify the `BROKEN` event but that's to be expected with only seven `BROKEN` instances in the whole dataset. However, the beginning of the `RECOVERING` phase matches near identically to the target data. The data were shifted by 10 minutes thus giving an accurate indication of machine failure 10 minutes in advance.
+The model achieved an accuracy of 98.5% on the test data. The graphs above display the predicted and actual values of the test dataset. The model does not identify the `BROKEN` event but that's to be expected with only seven `BROKEN` instances in the whole dataset. However, the beginning of the `RECOVERING` phase matches near identically to the target data. The data were shifted by 10 minutes thus giving an accurate indication of machine failure 10 minutes in advance.
 
-To better evaluate the performance of the model additional performance metrics besides accuracy are considered.  The confusion matrix suggests that all `NORMAL` instances were correctly classified, however almost a third of the `RECOVERING` instances where misclassified as `NORMAL`. This coincides with the predictions from the chart above where during the `RECOVERING` phase in the test data there's a dip.
+To better evaluate the performance of the model additional performance metrics besides accuracy are considered.  The confusion matrix suggests that all `NORMAL` instances were correctly classified, however almost a third of the `RECOVERING` instances where misclassified as `NORMAL`. This coincides with the predictions from the chart above where during the `RECOVERING` phase in the test data there's a dip and the machine was predicted to operate normally despite still being in the `RECOVERING` phase.
 
 ![](img/conf_matrix.png)
 
