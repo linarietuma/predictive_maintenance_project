@@ -67,7 +67,7 @@ To better evaluate the performance of the model additional performance metrics b
 
 ## Acknowledgements
 
-The project uses a sensor dataset from Kaggle - [pump_sensor_data.](https://www.kaggle.com/datasets/nphantawee/pump-sensor-data/metadata)
+The project uses a sensor dataset from Kaggle - [pump_sensor_data](https://www.kaggle.com/datasets/nphantawee/pump-sensor-data/metadata).
 
 For an introduction into RRNs [MIT's 6.S191 Lecture on RRNs](https://youtu.be/qjrad0V0uJE) has been a valuable resource.
 
