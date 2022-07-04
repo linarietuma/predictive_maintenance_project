@@ -7,7 +7,7 @@ The project explores the application of Long Short-Term Memory (LSTM) neural net
 
 ### The Background
 
-LSTMs are a type of Recurrent Neural Network (RRN). RNNs differ from more traditional feed-forward NNs due to their ability to account for contextual information of data. This characteristic makes RRNs superior when working with time-series and sequential data (i.e., ). RRNs are trained using back propagation through time (BPTT) - an extension of backpropagation used in traditional feed-forward NNs.
+LSTMs are a type of Recurrent Neural Network (RRN). RNNs differ from more traditional feed-forward NNs due to their ability to account for contextual information of data. This characteristic makes RRNs superior when working with time-series and sequential data (i.e., text). RRNs are trained using back propagation through time (BPTT) - an extension of backpropagation used in traditional feed-forward NNs.
 
 RRNs are susceptible to exploding and vanishing gradients due to the recurrent flow of inputs through the network. Long Short-Term Memory (LSTM) networks were designed to address the vanishing gradient problem of RRNs and effectively handle extended sequences. LSTMs achieve this by having Gated Cells that can discard irrelevant information.
 
